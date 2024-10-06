@@ -1,10 +1,6 @@
 # Python Selenium Scraper #TEMPLATE
 
-### Medium Article is here:
-https://medium.com/@thoren.lederer/automate-your-web-scraping-with-docker-schedule-python-selenium-scripts-on-cron-and-watch-the-a15511701a75
-
-### Updates
-- 2024-05-13: Added Medium Article Link
+!! Under development !!
 
 ## Description
 <i>Disclaimer: This repository can be cloned as a template repository and modified by your needs. It is only for educational purposes.</i>
