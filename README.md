@@ -5,9 +5,6 @@ https://medium.com/@thoren.lederer/automate-your-web-scraping-with-docker-schedu
 
 ### Updates
 - 2024-05-13: Added Medium Article Link
-- 2024-05-14: Added Tor Proxy to the Dockerfile
-- 2024-05-15  Added ProtonVPN Proxy to the Dockerfile
-- 2024-05-16: Added VPN Gateway bypass for local networks
 
 ## Description
 <i>Disclaimer: This repository can be cloned as a template repository and modified by your needs. It is only for educational purposes.</i>
@@ -73,54 +70,6 @@ You can find the log files in the `/var/logs/cron/cron-scheduled.log` folder.
 
 ----
 
-
-## How to use the Tor Proxy
-Run the run_tor.sh file to use the Tor Proxy. 
-```commandline
-
-sh run_tor.sh
-
-```
-
-After that you can use the tor proxy in your scraper logic. Example is included.
-
-````python3
-
-    ### If you want to use tor proxy, uncomment the following lines
-    ff_options.set_preference('network.proxy.type', 1)
-    ff_options.set_preference('network.proxy.socks', "localhost")
-    ff_options.set_preference('network.proxy.socks_port', 9050)
-
-````
-
-## How to use the ProtonVPN Proxy
-
-If you want to use a VPN for your scraper you can use the ProtonVPN Proxy. You can crete a free account on ProtonVPN and use the free servers.
-
-Copy your ProtonVPN credentials from your account and run the run_protonvpn.sh file.
-
-<img src="assets/protonvpn.png" style="max-width: 500px">
-
-```commandline
-
-sh run_protonvpn.sh
-
-# When you are asked for the username and password, enter your ProtonVPN credentials
-
-# basic country code is: nl
-
-```
-
-# How to bypass the VPN Gateway for local networks
-
-If you want to bypass local network traffic, uncomment the lines in the change_vpn.sh file.
-
-```commandline
-    # add ignore local traffic of example for kubernetes
-    # sudo bash -c "echo 'route 10.233.0.0 255.255.0.0 net_gateway' >> /etc/openvpn/client.conf"s
-    # and add dns resolver if needed
-    # dhcp-option DNS 10.233.0.3
-```
 
 Have fun with your scraper!
 
