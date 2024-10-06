@@ -1,3 +1,0 @@
-SOCKSPort 127.0.0.1:9050
-DataDirectory /var/lib/tor
-Log notice syslog
