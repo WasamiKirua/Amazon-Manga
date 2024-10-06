@@ -26,7 +26,7 @@ COPY main.py /opt/main.py
 
 # Install python dependencies
 COPY requirements.txt /tmp/requirements.txt
-RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
+RUN pip3 install --no-cache-dir -r /tmp/requirements.txt --break-system-packages
 
 
 # create a scheduled service
