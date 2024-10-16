@@ -21,8 +21,8 @@ services:
       - "7900:7900"  # Additional port for noVNC (browser view of Selenium session)
     environment:
       - DB_PATH=/opt/app/data  # Define the path to the shared volume for the database
-      #- SE_VNC_NO_PASSWORD=1
-      - SE_VNC_PASSWORD=rhost21
+      - SE_VNC_NO_PASSWORD=1
+      #- SE_VNC_PASSWORD=yourpasswd
     volumes:
       - ./app_data:/opt/app/data  # Mount the same shared volume
     privileged: true  # Allow container to access the necessary capabilities for Selenium
