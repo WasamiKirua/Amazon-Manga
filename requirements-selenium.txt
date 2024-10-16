@@ -1,0 +1,7 @@
+pydantic==2.9.2
+python-dotenv==1.0.1
+requests==2.32.3
+selenium==4.25.0
+selenium-wire==5.1.0
+webdriver-manager==4.0.2
+websocket-client==1.8.0

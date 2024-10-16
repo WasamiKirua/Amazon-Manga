@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  python-app:
+    build:
+      context: .
+      dockerfile: Dockerfile-fastapi  # Build from Dockerfile-flask
+    ports:
+      - "5000:5000"  # Expose the web application on port 8080
+    volumes:
+      - ./app_data:/app/data  # Mount a shared volume for database access
+    depends_on:
+      - selenium-scraper  # Ensure selenium-service starts before python-app
+
+  selenium-scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile-selenium  # Build from Dockerfile-selenium
+    ports:
+      - "4444:4444"  # Expose Selenium server's default port
+      - "7900:7900"  # Additional port for noVNC (browser view of Selenium session)
+    environment:
+      - DB_PATH=/opt/app/data  # Define the path to the shared volume for the database
+      #- SE_VNC_NO_PASSWORD=1
+      - SE_VNC_PASSWORD=rhost21
+    volumes:
+      - ./app_data:/opt/app/data  # Mount the same shared volume
+    privileged: true  # Allow container to access the necessary capabilities for Selenium
+    shm_size: "2g"  # Increase shared memory size to 2GB
